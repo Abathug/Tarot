@@ -17,19 +17,19 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Group root = new Group();
-			Scene scene = new Scene(root,1080,800,Color.BLUEVIOLET);
-			primaryStage.setTitle("Tarot tamer");
+		
 			
-			Image urlImage = new Image("./Nocide.jpg");
+			//image de test
+			Image urlImage = new Image("file:./src/application/c_bo.png");
 			ImageView image = new ImageView();
 			image.setImage(urlImage);
-			image.setX(500);
-			image.setY(400);
+			image.setX(50);
+			image.setY(40);
 			image.setRotate(10);
-			Group cartes = new Group();
+			//fin image
+		
 			
-			
+			//boutton
 			Button dist = new Button();
 			dist.setLayoutX(50);
 			dist.setLayoutY(50);
@@ -44,10 +44,20 @@ public class Main extends Application {
 						}
 						
 					});
+			//fin boutton
+			
+			//scene
+			primaryStage.setTitle("Tarot tamer");
+			Group root = new Group();
+			Scene scene = new Scene(root,1080,800,Color.BLUEVIOLET);
+						
 			root.getChildren().add(dist);
+			root.getChildren().add(image);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.sizeToScene();
 			primaryStage.show();
+			//fin scene
 			
 		} catch(Exception e) {
 			e.printStackTrace();
