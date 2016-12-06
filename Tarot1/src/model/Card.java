@@ -4,24 +4,35 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-public class Card {
+/*** Ordre des cartes : Spades > Hearts > Tiles > Clover ***/
+public class Card extends ImageView{
 	
 	private String color;
 	private int value;
-	private String fileName;
+	private String imageFace="Filename";
+	private String imageBack="FileName";
+	private Image image;
+	private static int width = 30;
+	private static int height = 60;
 	
 	// constructor
-	
-	public Card(String color, int value, String fileName) {
+	public Card(String imageName, int x, int y) {
         
-		this.color = color;
-		this.value = value;
-		this.fileName = fileName;
+		this.imageFace = imageName;
+		this.image = new Image(imageName);
+		setImage(image);
+		setFitWidth(width);
+		setFitHeight(height);
+		setX(x);
+		setY(y);
+		
 		
     }
 	
-	// getters
+	// methods
 	
 	public String getColor(){
 		return color;
@@ -32,27 +43,24 @@ public class Card {
 	}
 	
 	public String getFileName() {
-		return fileName;
+		return imageFace;
 	}
 	
-	// setters
 	
-	public void setColor(String color) {
-		this.color = color;
+	public void setImage(String imageName)
+	{
+		this.image = new Image(imageName);
 	}
-	public void setValue(int value) {
-		this.value = value;
+	
+	public void returnCard(boolean face)
+	{
+		setFace();
 	}
+	
+	private void setFace() {
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+		setImage(imageFace);
+			
 	}
-	
-	private ObservableList<Card> cardData = FXCollections.observableArrayList();
-	private ObjectProperty<Card> currentCard = new SimpleObjectProperty<>(null);
-	
-	public ObjectProperty<Card> currentPersonProperty() {
-        return currentCard ;
-    }
 
 }

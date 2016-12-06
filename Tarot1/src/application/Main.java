@@ -1,7 +1,6 @@
 package application;
 	
 import model.Card;
-import model.Model;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,34 +65,6 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	private ObservableList<Card> cardData = FXCollections.observableArrayList();
-	
-	public Main()
-	{
-String color = null;
-    	
-    	for (int i=0; i<21; i++)
-    	{
-    		// crée les atouts
-    	}
-    	for (int i=0; i<4; i++)
-    	{
-    		if (i==0)
-    			color = "Coeur";
-    		if (i==1)
-    			color = "Carreau";
-    		if (i==2)
-    			color = "Pique";
-    		if (i==3)
-    			color = "Trèfle";
-    		// crée les autres cartes selon leur couleur
-    		for (int f=0; f<14; f++)
-    		{
-    			cardData.add(new Card(color,f,"FileName"));
-    		}
-    	}
 	}
 	
 	public static void main(String[] args) {
