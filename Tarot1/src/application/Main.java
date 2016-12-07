@@ -1,6 +1,7 @@
 package application;
 	
 import model.Card;
+import model.Model;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +17,17 @@ import javafx.scene.paint.Color;
 
 
 public class Main extends Application {
+	
+	private Model model;
+	private View view;
 
 	@Override
 	public void start(Stage primaryStage) {
+		
+//		this.model = new Model();
+//		this.view = new View(model);
+//		model.setView(view);
+		
 		try {
 		
 			
@@ -65,6 +74,7 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public static void main(String[] args) {

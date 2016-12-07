@@ -1,9 +1,5 @@
 package model;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -17,6 +13,8 @@ public class Card extends ImageView{
 	private Image image;
 	private static int width = 30;
 	private static int height = 60;
+	
+	
 	
 	// constructor
 	public Card(String imageName, int x, int y) {
