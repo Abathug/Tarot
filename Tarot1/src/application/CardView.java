@@ -1,44 +1,45 @@
 package application;
 
 import javafx.scene.image.Image;
+import model.CardType;
 import javafx.scene.image.ImageView;
 import model.CardType;
 
-public class CardView {
-	
+public class CardView extends ImageView{
+
 	private int x;
 	private int y;
 	private int num;
-	
+
 	private CardType color;
-	
-	private Image image;
+
+
 	private ImageView imageBack;
 	private Image imageFront;
-	
+
 	private String path;
-	static private String pathBack ="file:.res/ressources/backImage.jpg";
-	
+	static final private String pathBack = "file:.src/ressources/backImage.jpg";
+
 	public CardView(String path, CardType color, int num) {
-		
+
 		this.setPath(path);
-		this.setImage(new Image(path));
-		this.imageBack = new ImageView(pathBack);
-		this.color = color;
-		this.setNum(num);
+		try {
+			this.setImage(new Image(path));
+			this.imageBack = new ImageView(pathBack);
+			this.color = color;
+			this.setNum(num);
+		} catch (Exception e) {
+			System.err.println(path + " image introuvable");
+		}
 	}
 
-	public int getX() {
-		return x;
-	}
+
 
 	public void setX(int x) {
 		this.x = x;
 	}
 
-	public int getY() {
-		return y;
-	}
+
 
 	public void setY(int y) {
 		this.y = y;
@@ -50,14 +51,6 @@ public class CardView {
 
 	public void setNum(int num) {
 		this.num = num;
-	}
-
-	public Image getImage() {
-		return image;
-	}
-
-	public void setImage(Image image) {
-		this.image = image;
 	}
 
 	public String getPath() {

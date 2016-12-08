@@ -4,32 +4,40 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /*** Ordre des cartes : Spades > Hearts > Tiles > Clover ***/
-public class Card extends ImageView{
+public class Card {
 	
 	private String color;
 	private int value;
-	private String imageFace="Filename";
-	private String imageBack="FileName";
+	private String name="Name";
 	private Image image;
 	private static int width = 30;
 	private static int height = 60;
+	private int x;
+	private int y;
 	
 	
 	
 	// constructor
 	public Card(String imageName, int x, int y) {
         
-		this.imageFace = imageName;
+		this.name = imageName;
 		this.image = new Image(imageName);
-		setImage(image);
-		setFitWidth(width);
-		setFitHeight(height);
 		setX(x);
 		setY(y);
 		
 		
     }
 	
+	private void setY(int y) {
+		this.y=y;
+		
+	}
+
+	private void setX(int x) {
+		this.x=x;
+		
+	}
+
 	// methods
 	
 	public String getColor(){
@@ -41,7 +49,7 @@ public class Card extends ImageView{
 	}
 	
 	public String getFileName() {
-		return imageFace;
+		return name;
 	}
 	
 	
@@ -57,7 +65,7 @@ public class Card extends ImageView{
 	
 	private void setFace() {
 
-		setImage(imageFace);
+		setImage(name);
 			
 	}
 
