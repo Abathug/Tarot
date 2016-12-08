@@ -45,24 +45,24 @@ public class View implements Observer {
 
 		for (int i = 0; i < 21; i++) {
 			this.imageCard
-					.add(new CardView("file:./res/ressources/" + Integer.toString(i) + ".jpg", CardType.Trump, i));
+					.add(new CardView("file:./src/ressources/" + Integer.toString(i) + ".jpg", CardType.Trump, i));
 		}
 
 		// colors
 		for (int i = 0; i < 14; i++) {
 			this.imageCard
-					.add(new CardView("file:./res/ressources/Spade" + Integer.toString(i) + ".jpg", CardType.Spade, i));
+					.add(new CardView("file:./src/ressources/Spade" + Integer.toString(i) + ".jpg", CardType.Spade, i));
 			this.imageCard
-					.add(new CardView("file:./res/ressources/Heart" + Integer.toString(i) + ".jpg", CardType.Heart, i));
+					.add(new CardView("file:./src/ressources/Heart" + Integer.toString(i) + ".jpg", CardType.Heart, i));
 			this.imageCard
-					.add(new CardView("file:./res/ressources/Tile" + Integer.toString(i) + ".jpg", CardType.Tile, i));
+					.add(new CardView("file:./src/ressources/Tile" + Integer.toString(i) + ".jpg", CardType.Tile, i));
 			this.imageCard.add(
-					new CardView("file:./res/ressources/Clover" + Integer.toString(i) + ".jpg", CardType.Clover, i));
+					new CardView("file:./src/ressources/Clover" + Integer.toString(i) + ".jpg", CardType.Clover, i));
 		}
 	}
 
-	public View(Model model)
-	{
+	public View(Model model) {
+		
 		this.distribute.setText("Distribute");
 		this.revealHand.setText("Reaveal Hand");
 		this.orderHand.setText("Order Hand");
@@ -72,19 +72,25 @@ public class View implements Observer {
 		this.revealHand.setLayoutY(50);
 		this.orderHand.setLayoutX(250);
 		this.orderHand.setLayoutY(50);
-				
+		
+		
+
 		loadImages();
-		
-		imageCard.forEach(card->{
-			
-		this.root.getChildren().add(card);
-		card.setVisible(true);
+
+		imageCard.forEach(card -> {
+
+			this.root.getChildren().add(card);
+			card.setVisible(true);
+			card.setFitHeight(240);
+			card.setFitWidth(120);
+			card.setTranslateX(50);
+			card.setTranslateY(200);
 		});
-		
+
 		root.getChildren().add(distribute);
 		root.getChildren().add(revealHand);
 		root.getChildren().add(orderHand);
-		
+
 		window.setTitle("Tarot tamer such wow");
 		window.setScene(scene);
 		window.show();
